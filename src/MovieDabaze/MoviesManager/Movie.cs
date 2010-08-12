@@ -5,7 +5,7 @@ using System.Text;
 
 namespace MovieDabaze.MoviesManager
 {
-    class Movie
+    public class Movie
     {
         /*
         ** Attributs : Getter & Setter
@@ -42,7 +42,10 @@ namespace MovieDabaze.MoviesManager
             _filename = filename;
             _filename_not_ext = _filename.Split('.');
         }
+        public Movie()
+        {
 
+        }
         public bool is_right_ext()
         {
             return ((_filename_not_ext[1] == "avi") || (_filename_not_ext[1] == "mkv") || (_filename_not_ext[1] == "mpg") || (_filename_not_ext[1] == "MPG") || (_filename_not_ext[1] == "AVI") || (_filename_not_ext[1] == "MKV"));

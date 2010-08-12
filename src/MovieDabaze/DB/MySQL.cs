@@ -12,13 +12,15 @@ namespace MovieDabaze.DB
         {
             MessageBox.Show("mySQL DB");
         }
-        //public override void CreateDB()
-        //{
-        //    MessageBox.Show("MySQL created");
-        //}
-        //public override void WriteOnFile(String filename)
-        //{
-        //    MessageBox.Show("MySQL Write on " + filename);
-        //}
+
+        public override void load()
+        {
+
+        }
+
+        public override void write_on_file(String filename)
+        {
+
+        }
     }
 }

@@ -8,7 +8,7 @@ namespace MovieDabaze.MoviesManager
 {
     class Movies
     {
-                static Movies instance = null;
+        static Movies instance = null;
         static readonly object padlock = new object();
 
         public List<Movie> movies = new List<Movie>();

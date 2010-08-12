@@ -16,6 +16,7 @@ namespace MovieDabaze
             InitializeComponent();
             DB.DB database = DB.DBFactory.createInstance("XML");
             database.test();
+            database.write_on_file("toot");
         }
     }
 }
