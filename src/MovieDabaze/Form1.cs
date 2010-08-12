@@ -16,6 +16,10 @@ namespace MovieDabaze
             InitializeComponent();
             DB.DB database = DB.DBFactory.createInstance("XML");
             database.test();
+
+            MoviesManager.Movies movies = MoviesManager.Movies.Instance;
+            movies.load("Films.xml");
+
             database.write_on_file("toot");
         }
     }

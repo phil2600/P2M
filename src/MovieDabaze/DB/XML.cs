@@ -18,21 +18,20 @@ namespace MovieDabaze.DB
         
         public override void load()
         {
-
         }
 
         public override void write_on_file(String filename)
         {
-            MoviesManager.Movie movie = new MovieDabaze.MoviesManager.Movie("tetest");
-            movie._actor1 = "actor1";
-            movie._actor2 = "actor2";
-            movie._filename = "filename";
-            movie._genre1 = "genre1";
-            movie._genre2 = "genre2";
-            movie._realisator = "realisator";
+            MoviesManager.Movies movies = MoviesManager.Movies.Instance;
+
             XmlSerializer serializer = new XmlSerializer(typeof(MoviesManager.Movie));
             TextWriter textWriter = new StreamWriter(@"C:\movie.xml");
-            serializer.Serialize(textWriter, movie);
+
+            foreach (MoviesManager.Movie movie in movies.movies)
+            {
+                serializer.Serialize(textWriter, movie);
+            }
+
             textWriter.Close();
         }
     }

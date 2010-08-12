@@ -50,7 +50,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DB\Factory.cs" />
+    <Compile Include="DB\DB.cs" />
+    <Compile Include="DB\DBFactory.cs" />
     <Compile Include="DB\MySQL.cs" />
     <Compile Include="DB\XML.cs" />
     <Compile Include="Form1.cs">

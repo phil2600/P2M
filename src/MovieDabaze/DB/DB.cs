@@ -9,6 +9,8 @@ namespace MovieDabaze.DB
     abstract class DB
     {
         MoviesManager.Movies movies;
+        public String db_path { get; set; }
+
         public DB()
         {
             movies = MoviesManager.Movies.Instance;
