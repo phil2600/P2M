@@ -14,6 +14,8 @@ namespace MovieDabaze
         public Form1()
         {
             InitializeComponent();
+            DB.DB database = DB.DBFactory.createInstance("XML");
+            database.test();
         }
     }
 }
