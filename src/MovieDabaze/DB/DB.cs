@@ -8,17 +8,25 @@ namespace MovieDabaze.DB
 {
     abstract class DB
     {
-        MoviesManager.Movies movies;
+        public MoviesManager.Movies movies;
         public String db_path { get; set; }
 
         public DB()
         {
             movies = MoviesManager.Movies.Instance;
         }
-        
+
         public abstract void test();
-        
-        public abstract void load();
-        public abstract void write_on_file(String filename);
+
+        public abstract void load(String filename);
+        public abstract void save(String filename);
+        public MoviesManager.Movies movies_get()
+        {
+            return movies;
+        }
+        public void movies_set(MoviesManager.Movies movies)
+        {
+            this.movies = movies;
+        }
     }
 }

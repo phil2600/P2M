@@ -13,12 +13,12 @@ namespace MovieDabaze.DB
             MessageBox.Show("mySQL DB");
         }
 
-        public override void load()
+        public override void load(String filename)
         {
 
         }
 
-        public override void write_on_file(String filename)
+        public override void save(String filename)
         {
 
         }

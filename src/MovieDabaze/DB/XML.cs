@@ -16,21 +16,27 @@ namespace MovieDabaze.DB
             MessageBox.Show("XML DB");
         }
         
-        public override void load()
+        public override void load(String filename)
         {
+            movies = new MoviesManager.Movies();
+
+            XmlSerializer serializer = new XmlSerializer(typeof(MoviesManager.Movies));
+            TextReader textReader = new StreamReader(@"C:\movie.xml");
+
+            movies = (MoviesManager.Movies)serializer.Deserialize(textReader);
+
+            MoviesManager.Movies.Instance.movies = movies.movies;
+            textReader.Close();
         }
 
-        public override void write_on_file(String filename)
+        public override void save(String filename)
         {
-            MoviesManager.Movies movies = MoviesManager.Movies.Instance;
+            movies = MoviesManager.Movies.Instance;
 
-            XmlSerializer serializer = new XmlSerializer(typeof(MoviesManager.Movie));
-            TextWriter textWriter = new StreamWriter(@"C:\movie.xml");
+            XmlSerializer serializer = new XmlSerializer(typeof(MoviesManager.Movies));
+            TextWriter textWriter = new StreamWriter(@filename);
 
-            foreach (MoviesManager.Movie movie in movies.movies)
-            {
-                serializer.Serialize(textWriter, movie);
-            }
+            serializer.Serialize(textWriter, movies);
 
             textWriter.Close();
         }
