@@ -6,7 +6,7 @@ using System.Xml;
 
 namespace MovieDabaze.MoviesManager
 {
-    class Movies
+    public class Movies
     {
         static Movies instance = null;
         static readonly object padlock = new object();
@@ -51,7 +51,7 @@ namespace MovieDabaze.MoviesManager
             movies.Remove(movie);
         }
 
-        public String find_by_title(String title)
+        public String contains_title(String title)
         {
             try
             {
@@ -100,7 +100,7 @@ namespace MovieDabaze.MoviesManager
                     movie._synopsis = node.Attributes["synopsis"].Value;
                     movie._note = node.Attributes["note"].Value;
                     movie._runtime = node.Attributes["duree"].Value;
-                    //movie._already_seen = node.Attributes["dejavu"].;
+                    movie._already_seen = node.Attributes["dejavu"].Value;
                     movie._year = node.Attributes["annee"].Value;
                     movie._link = node.Attributes["link"].Value;
                     movie._link_picture = node.Attributes["link_affiche"].Value;

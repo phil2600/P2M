@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 
 namespace MovieDabaze.MoviesManager
 {
@@ -26,17 +27,13 @@ namespace MovieDabaze.MoviesManager
         public String _year { get; set; }
         public String _link_picture { get; set; }
         public String _link { get; set; }
-        public int _already_seen { get; set; }
+        public String _already_seen { get; set; }
 
         //message;
 
         /*
         ** Public Methods
         */
-
-        /** <summary>A summary of the method.</summary>
-         *  <param name="filename">A description of the parameter.</param>
-         *  <remarks>Remarks about the method.</remarks> */
         public Movie(String filename)
         {
             _filename = filename;
@@ -44,11 +41,24 @@ namespace MovieDabaze.MoviesManager
         }
         public Movie()
         {
-
         }
+
         public bool is_right_ext()
         {
             return ((_filename_not_ext[1] == "avi") || (_filename_not_ext[1] == "mkv") || (_filename_not_ext[1] == "mpg") || (_filename_not_ext[1] == "MPG") || (_filename_not_ext[1] == "AVI") || (_filename_not_ext[1] == "MKV"));
+        }
+
+        //public String filename_cleaner()
+        //{
+//            return this.filename_cleaner(this._filename_not_ext);
+        //}
+        public String filename_cleaner(String filename)
+        {
+            String cleaned = String.Empty;
+            Regex regexp = new Regex(@" |, ");
+
+
+            return cleaned;
         }
     }
 }
