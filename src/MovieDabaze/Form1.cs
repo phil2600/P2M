@@ -17,10 +17,37 @@ namespace MovieDabaze
             DB.DB database = DB.DBFactory.createInstance("XML");
             database.test();
 
-            MoviesManager.Movies movies = MoviesManager.Movies.Instance;
-            movies.load("Films.xml");
+            database.load("c:/movie.xml");
 
-            database.write_on_file("toot");
+            Scraper.Scraper scraper = Scraper.ScraperFactory.createInstance("Allocine");
+            scraper.load();
+            scraper.FindMoviesTitles("Alien");
+            MoviesManager.Movie test_movie = scraper.FindMovie(62);
+
+            // Tests de lecture
+            checkedListBox1.Items.Clear();
+            foreach (MoviesManager.Movie movie in database.movies_get().movies)
+                checkedListBox1.Items.Add(movie._filename);
+            checkedListBox1.Sorted.CompareTo(true);
+            if (checkedListBox1.Items.Count > 0)
+                checkedListBox1.SelectedIndex = 0;
+
+            MoviesManager.Movies movies = scraper.movies;
+            movies.add(test_movie);
+
+            checkedListBox2.Items.Clear();
+            foreach (MoviesManager.Movie movie in database.movies_get().movies)
+                checkedListBox2.Items.Add(movie._title);
+            checkedListBox2.Sorted.CompareTo(true);
+            if (checkedListBox2.Items.Count > 0)
+                checkedListBox2.SelectedIndex = 0;
+
+
+            //foreach (String item in checkedListBox1.CheckedItems)
+            //    checkedListBox2.Items.Add(item);
+            // \Tests de lecture
+            
+            database.save("c:/movie2.xml");
         }
     }
 }

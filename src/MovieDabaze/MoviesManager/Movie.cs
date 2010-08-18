@@ -17,6 +17,8 @@ namespace MovieDabaze.MoviesManager
         // Visible information
         public String _title { get; set; }
         public String _realisator { get; set; }
+        public List<String> _genres { get; set; }
+        public List<String> _actors { get; set; }
         public String _actor1 { get; set; }
         public String _actor2 { get; set; }
         public String _genre1 { get; set; }
@@ -28,6 +30,8 @@ namespace MovieDabaze.MoviesManager
         public String _link_picture { get; set; }
         public String _link { get; set; }
         public String _already_seen { get; set; }
+        
+        public String _movie_code { get; set; }
 
         //message;
 
